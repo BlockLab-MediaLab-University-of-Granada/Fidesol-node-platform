@@ -1,0 +1,30 @@
+<div class="container pt-5 pb-5" style="height: 750px;">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3 style="color: black;">Sign In</h3>
+
+			</div>
+			<div class="card-body">
+				<form>
+					<div class="input-group form-group pb-4 pt-4">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="padding: 11px;"><i class="fas fa-user"></i></span>
+						</div>
+						<input type="text" class="form-control" name="name" placeholder="username" [(ngModel)]="userForm" (ngModelChange)="setUser($event)"/>
+						
+					</div>
+					<div class="input-group form-group pb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="padding: 11px;"><i class="fas fa-key"></i></span>
+						</div>
+						<input type="password" class="form-control" name="pass" placeholder="password" [(ngModel)]="passwordForm" (ngModelChange)="setPassword(passwordForm = $event)"/>
+					</div>
+					<div class="form-group text-center pt-5">
+						<input type="button" value="Login" class="btn float-right login_btn" (click)="login(userForm,passwordForm)">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

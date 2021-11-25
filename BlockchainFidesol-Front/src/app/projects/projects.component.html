@@ -1,0 +1,110 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav" style="justify-content: space-between; width: 100%;">
+          <div style="display: flex;">
+
+          <li class="nav-item">
+            <a class="nav-link active text-white fs-3 ps-5" aria-current="page" routerLink="/projects"  routerLinkActive="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-white fs-3 ps-5" aria-current="page" href="http://localhost:3002"  routerLinkActive="active">Network-Status</a>
+          </li>
+
+        </div>
+        <div>
+          <li class="nav-item" style="right: 0cm;">
+          <input type="button" class="mybutton" value="logout" (click)="logout()"/>
+          </li>
+        </div>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+<section class="section home-feature">
+    
+    <div class="container">
+                <div class="row text-center pt-5">
+                    <!-- <h2>Listado de proyectos</h2> -->
+                    <tr *ngFor="let proyecto of proyectos" style="max-width: 33%; padding-top: 25px;">
+                    <!-- ***** Features Small Item Start ***** -->
+                    <div class="" style="flex: 0 0 33.333333%;" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
+                        <div class="features-small-item">
+                            <div class="icon">
+                                <i><a href="{{proyecto.url}}"><img  style="height:100px; width: 100px; border-radius: 25%;" src="../../assets/{{proyecto.id}}.jpg" alt=""></a></i>
+                            </div>
+                            <h5 class="features-title"><a href="{{proyecto.url}}"><td>{{proyecto.name}}</td></a></h5>
+                            <br>
+                            <p><td>{{proyecto.descripcion}}</td></p>
+                        </div>
+                    </div>
+                    <!-- ***** Features Small Item End ***** -->
+                    </tr>
+                    
+                    <!-- ***** Features Small Item End ***** -->
+                </div>
+    </div>
+
+</section>
+
+
+        <!-- Image Showcases-->
+        <section class="showcase">
+
+            <!-- <div class="container pt-4 text-center">
+                <h2>Listado de proyectos</h2>
+            </div>
+            <section class="testimonials text-center">
+                <tr *ngFor="let proyecto of proyectos">
+                    <a href="{{proyecto.url}}"><td>{{proyecto.name}}</td></a>
+                    <td>{{proyecto.descripcion}}</td>
+                </tr> -->
+            <!-- </section>    -->
+                <div *ngIf="rol==2" class="container pt-5">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="well well-sm">
+                                <form class="form-horizontal" method="post">
+                                    <fieldset>
+                                        <h2>Add Project</h2>
+                
+                                        <div class="form-group pb-4 pt-5">
+                                            <div class="col-md-8">
+                                                <input id="fname" name="name" type="text" placeholder="Project Name" class="form-control" required [(ngModel)]="nameForm" (ngModelChange)="setName($event)">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-8">
+                                                <input id="lname" name="url" type="text" placeholder="Url" class="form-control" required [(ngModel)]="urlForm" (ngModelChange)="setUrl($event)">
+                                            </div>
+                                        </div>
+                
+                                        <div class="form-group">
+                                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                                            <div class="col-md-8">
+                                                <input id="email" name="email" type="text" placeholder="Description" class="form-control" required [(ngModel)]="descForm" (ngModelChange)="setDesc($event)">
+                                            </div>
+                                        </div>
+                
+                                        <div class="form-group pt-5 pb-5">
+                                            <div class="col-md-12 text-center">
+                                                <input type="button" class="btn btn-primary btn-lg" value="Submit" (click)="add(nameForm,urlForm,descForm)"/>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        
+        </section>
+<!-- <h1>
+    Hola
+</h1> -->
